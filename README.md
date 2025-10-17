@@ -144,6 +144,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 5.  **Run database migrations:**
     ```bash
+    python manage.py makemigrations
     python manage.py migrate
     ```
 
