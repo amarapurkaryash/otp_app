@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Secure OTP Home</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+
+<body>
+    <h1>Secure OTP App</h1>
+    <p>Choose your action:</p>
+    <div class="buttons">
+        <a href="{% url 'secure_otp:request' %}" class="btn">Request OTP</a>
+        <a href="{% url 'secure_otp:verify' %}" class="btn">Verify OTP</a>
+    </div>
+    <p><a href="/">Back to Home</a></p>
+</body>
+
+</html>

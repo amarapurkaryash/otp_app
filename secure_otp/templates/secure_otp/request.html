@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Request Secure OTP</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+
+<body>
+    <h1>Request Secure OTP</h1>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Send OTP</button>
+    </form>
+    <p><a href="{% url 'secure_otp:home' %}">Back</a></p>
+</body>
+
+</html>

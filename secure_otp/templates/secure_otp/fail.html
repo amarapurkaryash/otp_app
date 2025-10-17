@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OTP Failed</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+
+<body>
+    <h1>❌ OTP Verification Failed!</h1>
+    <p>The OTP is invalid or expired.</p>
+    <p><a href="{% url 'secure_otp:home' %}">Try Again</a></p>
+</body>
+
+</html>

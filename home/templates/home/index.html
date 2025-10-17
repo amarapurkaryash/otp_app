@@ -1,0 +1,28 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OTP App | Home</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Secure OTP App</h1>
+    </header>
+
+    <main>
+        <p>Select which OTP mode you want to try:</p>
+
+        <div class="buttons">
+            <a href="{% url 'secure_otp:home' %}" class="btn success">🔒 Secure OTP</a>
+            <a href="{% url 'unsecure_otp:request' %}" class="btn danger">⚠️ Unsecure OTP</a>
+        </div>
+    </main>
+
+    <footer>
+        <small> OTP App Lab by Ninedark</small>
+    </footer>
+</body>
+</html>
