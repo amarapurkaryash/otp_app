@@ -4,6 +4,9 @@ from django.contrib import messages
 from .forms import RequestOTPForm, VerifyOTPForm
 from .models import UnsecureOTP
 import random
+from django.conf import settings
+
+
 
 def generate_code():
     return f"{random.randint(0, 999999):06d}"  # zero-padded 6-digit
@@ -19,7 +22,7 @@ def request_otp(request):
             # Send email
             subject = "Your OTP (Unsecure demo)"
             body = f"Your OTP is: {code}\n\n(This is an UNSECURE demo OTP for learning only.)"
-            send_mail(subject, body, None, [email], fail_silently=False)
+            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
             messages.success(request, "OTP sent to your email (demo).")
             return redirect('unsecure_otp:verify')
     else:

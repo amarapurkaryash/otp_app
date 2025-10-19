@@ -5,6 +5,8 @@ from .forms import RequestOTPForm, VerifyOTPForm
 from .models import SecureOTP
 import random
 from django.utils import timezone
+from django.conf import settings
+
 
 def generate_code():
     """Generate a 6-digit OTP"""
@@ -25,7 +27,7 @@ def request_otp(request):
             # Send email
             subject = "Your Secure OTP"
             body = f"Your OTP is: {code}\nValid for 5 minutes."
-            send_mail(subject, body, None, [email], fail_silently=False)
+            send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
             
             messages.success(request, "OTP sent to your email (valid 5 mins).")
             return redirect('secure_otp:verify')
